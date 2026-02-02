@@ -1,0 +1,8 @@
+# Coding the News Week 1
+
+Live from New York, this is my first README file.
+
+## About Me
+
+I'm learning to code at CUNY. You can reach me at [nancy.jiang10@journalsm.cuny.edu](mailto:nancy.jiang10@journalism.cuny.edu).
+
