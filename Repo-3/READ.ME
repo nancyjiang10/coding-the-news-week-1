@@ -6,3 +6,217 @@ Live from New York, this is my first README file.
 
 I'm learning to code at CUNY. You can reach me at [nancy.jiang10@journalism.cuny.com](mailto:nancy.jiang10@journalism.cuny.com).
 
+User: Hi, what's in this folder?
+
+GitHub Copilot: Enable Claude Haiku 4.5 for all clients
+[object Object]
+
+User: @agent Enable: "Enable Claude Haiku 4.5 for all clients"
+
+GitHub Copilot: This is an interactive globe visualization project built with **Svelte and TypeScript**. Here's what's in it:
+
+**Root files:**
+- package.json - project dependencies and scripts
+- tsconfig.json - TypeScript configuration
+- README.md - project documentation
+- LICENSE - license file
+
+**src** - Source code:
+- **`components/`** - Svelte components including:
+  - `Builder/` - Configuration UI for creating globe visualizations
+  - `CustomGlobe/` - Main globe component with features like GeoJSON rendering, country highlighting, custom labels, pan/zoom handling
+  - `mapLibre/` - MapLibre integration and utilities
+  - `ScrollytellerGlobe/` - Scrollytelling-enabled globe variant
+- **`lib/`** - Utility modules for markers and stores
+- **`snippets/`** - Code snippets like spike layer functionality
+
+**public** - Static assets:
+- Sample GeoJSON files (points, lines, test data)
+- HTML files including a builder interface
+
+**docs** - Architecture documentation
+
+This appears to be an interactive mapping application that lets users create and customize globe visualizations with geographic data overlays.
+
+User: 2. What can I do with the stuff in this folder?
+
+GitHub Copilot: Based on the project structure, you can:
+
+1. **Create interactive globe visualizations** - Build custom 3D globe maps with various data overlays using the Builder component
+
+2. **Visualize geographic data** - Render GeoJSON features including:
+   - Point markers
+   - Lines and paths
+   - Polygon areas
+   - Spike visualizations (3D bars from locations)
+
+3. **Interact with the map** - Pan, zoom, and explore the globe
+
+4. **Highlight countries** - Automatically highlight specific countries on the map
+
+5. **Add custom labels** - Place and customize text labels at specific locations
+
+6. **Create scrollytelling experiences** - Build narrative-driven visualizations that guide viewers through geographic stories using the ScrollytellerGlobe component
+
+7. **Style customization** - Choose between different map styles (street maps, natural earth themes)
+
+8. **Build a web application** - It appears to be set up as a full web app (with public HTML files and a dev server via package.json)
+
+Essentially, it's a framework for creating interactive, data-driven geographic visualizations and storytelling experiences on a 3D globe.
+
+User: 3. What is in the architecture file?
+
+GitHub Copilot: Read [](file:///Users/nancyjiang/Code/Clones/interactive-globey-maplibre/docs/architecture.md)
+
+The architecture file describes a **two-tier component system**:
+
+**Core Structure:**
+- **CustomGlobe** - The main map component that initializes MapLibre and exposes it as context to child components. Features are added as child components that consume this context.
+- **Builder** - An admin interface that wraps CustomGlobe and manages the application state (zoom, coordinates, active layers).
+
+**Data Flow:**
+- State is serializable to URL hash, enabling shareable/restorable configurations
+- State schema defined in marker.ts via `markerSchema`
+- Custom codecs handle efficient URL encoding/decoding of complex data
+- Builder updates state → serialized to URL hash → CustomGlobe reacts to changes
+
+**How to Add New Features:**
+1. Define new state property in `markerSchema` (with custom codec if needed)
+2. Create a property editor component in Builder
+3. Implement the map feature in features
+4. Add the component to CustomGlobe and pass the prop down
+
+This architecture makes it easy to add new, URL-persistent map features while keeping concerns separated between configuration (Builder) and rendering (CustomGlobe).
+
+User: What's in this repo?
+
+GitHub Copilot: Read [](file:///Users/nancyjiang/Code/Clones/odyssey/README.md#1-1), lines 1 to 50
+
+Read [](file:///Users/nancyjiang/Code/Clones/odyssey/package.json)
+
+This is **Odyssey**, an ABC News framework for enhancing feature-worthy stories. Here's what it contains:
+
+**Purpose**: A tightly coupled system designed for creating visually rich, interactive news articles with custom components and utilities specific to ABC News environments.
+
+**Key directories**:
+- **src/app/components/**: Rich library of UI components including galleries, video players, quotes, embeds, parallax effects, dropdowns, and more
+- **src/app/utils/**: Utility functions for analytics, DOM manipulation, logging, content parsing, and smart quotes
+- **src/app/scheduler/**: Animation frame scheduling utilities
+- **src/app/meta/**: Article metadata handling
+- **e2e/**: Playwright-based visual regression and E2E tests
+
+**Main features**:
+- Public API accessible via `window.__ODYSSEY__` for custom component creation
+- Component system (Block, Caption, Gallery, Picture, Quote, VideoPlayer, etc.)
+- DOM utilities and lifecycle management
+- Viewport-aware scheduler for performance optimization
+- Multiple video and media embedding components
+
+**Tech stack**: JavaScript, SCSS, uses dependencies like nanohtml, classnames, and d3-array. Built with Aunty (ABC News build tool).
+
+**Status**: Open source (MIT) but primarily designed for ABC News use cases, though others can learn from or repurpose individual components.
+
+User: What does the file event.json contain?
+
+GitHub Copilot: Read [](file:///Users/nancyjiang/Code/Clones/odyssey/event.json)
+
+The event.json file simply contains a single configuration flag:
+
+```json
+{
+  "act": true
+}
+```
+
+This likely enables or indicates that the Odyssey project is "active" or that some feature/mode is enabled, though without additional context from the codebase or documentation, the exact purpose isn't immediately clear. It's a minimal configuration file.
+
+User: What kind of files are in here?
+
+GitHub Copilot: Based on the workspace structure, this repo contains:
+
+**Configuration & Build Files**:
+- aunty.config.js - ABC News build tool config
+- jsconfig.json - JavaScript configuration
+- playwright.config.js - E2E testing framework config
+- package.json - Node.js dependencies and scripts
+- event.json - Custom configuration flag
+
+**Source Code**:
+- `.js` files - JavaScript components and utilities
+- `.scss` files - Sass stylesheets for styling
+
+**Testing**:
+- `.spec.js` files - Playwright E2E tests
+- `.css` files - Test-specific styles (screenshots.css)
+- Visual snapshots directory for visual regression testing
+
+**Documentation & Metadata**:
+- README.md - Project documentation
+- LICENSE - MIT license
+- types.d.ts - TypeScript type definitions
+- index.html - Static HTML entry point
+
+**Overall**: Primarily a **JavaScript/SCSS frontend project** with a component-based architecture, modern build tooling (Aunty), and comprehensive E2E testing with Playwright. It's focused on interactive news article components with styling and testing infrastructure.
+
+User: What is in this repo?
+
+GitHub Copilot: Read [](file:///Users/nancyjiang/Code/Clones/components-builder/README.md#1-1), lines 1 to 50
+
+Read [](file:///Users/nancyjiang/Code/Clones/components-builder/package.json#1-1), lines 1 to 50
+
+This is **@abcnews/components-builder**, a Svelte component library (v0.0.12) providing reusable UI components and styles for building interactive tools with a GUI interface.
+
+**Key components include:**
+
+- **BuilderStyleRoot** — Global styles wrapper (like Bootstrap/Tailwind) for form elements and builder interfaces
+- **BuilderFrame** — Two-column layout scaffold with visualization and sidebar areas
+- **UpdateChecker** — Monitors for new versions and prompts users to upgrade
+- **Modal, ContextMenu, Typeahead, Loader** — Common UI components
+- **GoogleDocScrollyteller** — Specialized component for scroll-driven narratives
+- **ScreenshotTool** — Utility for capturing screenshots
+- **MarkerAdmin** — Marker administration component
+
+The project uses **SvelteKit** with **Storybook** for component documentation and **Vite** for bundling. It's designed to be published as an npm package with TypeScript support.
+
+User: What does the storybook file contain?
+
+GitHub Copilot: Searched for files matching `**/.storybook/**`, 2 matches
+
+Read [](file:///Users/nancyjiang/Code/Clones/components-builder/.storybook/main.ts)
+
+Read [](file:///Users/nancyjiang/Code/Clones/components-builder/.storybook/preview.ts)
+
+The Storybook configuration consists of two files:
+
+**main.ts** — Main configuration that:
+- Discovers stories from `src/**/*.stories.@(js|ts|svelte)` and `src/**/*.mdx` files
+- Enables addons: Essentials, Svelte CSF, and Interactions
+- Uses SvelteKit as the framework
+
+**preview.ts** — Preview settings that:
+- Configures control matchers for color and date inputs in the UI
+- Minimal setup focused on basic controls
+
+The actual component stories are in the individual `.stories.svelte` files throughout the lib directory (like `BuilderFrame.stories.svelte`, `Modal.stories.svelte`, etc.).
+
+User: What can I do with the storybook file?
+
+GitHub Copilot: With Storybook in this project, you can:
+
+1. **Run the dev server** — `npm run storybook` launches an interactive UI on port 6006 where you can view and interact with all components
+
+2. **View component documentation** — Browse all `.stories.svelte` files as interactive stories with live previews
+
+3. **Test components interactively** — Use the Storybook UI to:
+   - See components with different props
+   - Control inputs via the Controls panel (color/date matchers configured in preview.ts)
+   - Test interactions with the Interactions addon
+   - Verify responsive design
+
+4. **Build Storybook** — `npm run build-storybook` generates a static site for deployment/sharing
+
+5. **Write new stories** — Create `.stories.svelte` files for new components to document usage patterns and showcase variations
+
+6. **Debug components** — Use Storybook's tools to isolate components and test them in a controlled environment without dealing with the full app
+
+This is particularly useful for a component library like this one, as it serves as both documentation and a development environment for each component.
